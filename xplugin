@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+import sys
+sys.path.append('../tapyr')
+
+import os
+from tapyr import Tapir
+
+address = os.getenv('ADDRESS')
+if address== None:
+  address = "127.0.0.1:3583"
+session = Tapir(*address.split(":"))
+
+if len(sys.argv) == 2:
+  plugin = session.plugin(sys.argv[1])
+  if plugin:
+    print(plugin["name"], ":", plugin["description"], plugin["config"])
+  else:
+    print(sys.argv[1], "not found")
+else:
+  print(sys.argv[0], " plugin_name")

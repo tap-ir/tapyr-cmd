@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+import sys
+sys.path.append('../tapyr')
+
+import os 
+from tapyr import Tapir
+import json
+
+def recurse(node):
+  for child_info in node.children:
+    child = session.node_by_id(child_info.id)
+    recurse(child) 
+    res = session.schedule("clamav", {"file" : child_info.id})
+
+address = os.getenv('ADDRESS')
+if address== None:
+  address = "127.0.0.1:3583"
+session = Tapir(*address.split(":"))
+
+
+root = session.node('/root')
+recurse(root)

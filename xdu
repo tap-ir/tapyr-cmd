@@ -1,0 +1,41 @@
+#!/usr/bin/python3
+import sys
+sys.path.append('../tapyr')
+
+import os
+from tapyr import Tapir
+
+
+def usage():
+  print("./" + sys.argv[1] + " [PATH]")
+
+def list_children(path, size):
+  node = session.node(path)
+  try:
+    data_size = node.data.size
+    size += data_size
+  except:
+    pass
+  try:
+    for node in node.children:
+      child_path = path + "/" + node.name
+      size = list_children(child_path, size)
+  except:
+    pass
+  return size
+
+argc = len(sys.argv)
+
+address = os.getenv('ADDRESS')
+if address== None:
+  address = "127.0.0.1:3583"
+session = Tapir(*address.split(":"))
+
+if argc == 1:
+  size = list_children("/root", 0)
+  print(size)
+elif argc == 2:
+  size = list_children(sys.argv[1], 0)
+  print(size)
+else:
+    usage()

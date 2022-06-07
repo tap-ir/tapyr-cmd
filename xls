@@ -1,0 +1,47 @@
+#!/usr/bin/python3
+import sys
+sys.path.append('../tapyr')
+
+import os
+from tapyr import Tapir
+
+def usage():
+  print("ls [-r] [-f] path")
+
+#use batch
+def list_children(path, rec = False, full = False): #use id rather than path?
+  node = session.node(path)
+  try:
+    for child_info in node.children:
+      child_path = path + "/" + child_info.name
+      if rec:
+        print(child_path)
+        list_children(child_path, rec)
+      elif full:
+        print(child_path)
+      else:
+        print(child_info.name)
+  except:
+    pass
+
+argc = len(sys.argv)
+
+address = os.getenv('ADDRESS')
+if address== None:
+  address = "127.0.0.1:3583"
+session = Tapir(*address.split(":"))
+
+if argc == 1:
+  list_children("/root", False)
+elif argc == 2:
+  list_children(sys.argv[1], False)
+elif argc == 3:
+  opt = sys.argv[1]
+  if opt == "-r":
+    list_children(sys.argv[2], True)
+  elif opt == "-f":
+    list_children(sys.argv[2], False, True)
+  else:
+    usage()
+else:
+    usage()

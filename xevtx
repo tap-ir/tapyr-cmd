@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+import sys
+sys.path.append('../tapyr')
+
+import os 
+from tapyr import Tapir
+import json
+
+address = os.getenv('ADDRESS')
+if address== None:
+  address = "127.0.0.1:3583"
+session = Tapir(*address.split(":"))
+
+prefetch_node = session.node(sys.argv[1])
+res = session.run("evtx", {"files" : prefetch_node.id})

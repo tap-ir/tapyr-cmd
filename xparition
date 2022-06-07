@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+import sys
+sys.path.append('../tapyr')
+
+import os
+from tapyr import Tapir
+
+address = os.getenv('ADDRESS')
+if address== None:
+  address = "127.0.0.1:3583"
+session = Tapir(*address.split(":"))
+
+node = session.node(sys.argv[1])
+res = session.run("partition", { "file" : node.id })
