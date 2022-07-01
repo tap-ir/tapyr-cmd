@@ -6,14 +6,11 @@ import os
 from tapyr import Tapir
 import json
 
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-session = Tapir(*address.split(":"))
 
 if len(sys.argv) < 3:
-  print(sys.argv[0] + "NAME [FILE]")
+  print(sys.argv[0] + " NAME [FILE] [...]")
 else:
+  session = Tapir()
   file_path = sys.argv[1]
   name = file_path.split("/")[-1]
   path = file_path[:file_path.rfind("/")] #handle errors show usage

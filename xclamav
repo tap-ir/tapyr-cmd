@@ -12,11 +12,7 @@ def recurse(node):
     recurse(child) 
     res = session.schedule("clamav", {"file" : child_info.id})
 
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-session = Tapir(*address.split(":"))
-
+session = Tapir()
 
 root = session.node('/root')
 recurse(root)

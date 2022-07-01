@@ -5,10 +5,7 @@ sys.path.append('../tapyr')
 import os
 from tapyr import Tapir
 
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-session = Tapir(*address.split(":"))
+session = Tapir()
 
 for plugin in session.plugins():
   print(plugin["name"], "\t\t:", plugin["description"])

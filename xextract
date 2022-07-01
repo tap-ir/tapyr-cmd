@@ -3,32 +3,19 @@ import sys
 sys.path.append('../tapyr')
 
 import sys
-import os
-import time
-import json
 from tapyr import Tapir
-
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-session = Tapir(*address.split(":"))
 
 #XXX add directory extraction
 #XXX add possiblity to get node id from query, time line etc
 #XXX add possbility to put all in a zip file with password or not 
 if len(sys.argv) == 3:
-  query = session.query(sys.argv[1])
+  session = Tapir()
   path = sys.argv[2]
-  for node_id in query:
+  for node in session.nodes_by_id(session.query(sys.argv[1]), name=True, path=True):
     try:
-      remote_path = session.path(node_id)
-      name = remote_path.split("/")[-1]
-      b = session.download(node_id, path + "/" + name)
+      b = session.download(node.id, path + "/" + node.name())
     except Exception:
-      print("Can't download file : " + remote_path)
-    # f = open(path + "/" + name, 'wb')
-    # f.write(b)
-    # f.close()
+      print("Can't download file : " + node.path)
 else:
   print("Usage:", sys.argv[0], "[QUERY] [PATH]")
   print("      ", sys.argv[0], '"name == w\'*.jpg\'"', "images/")

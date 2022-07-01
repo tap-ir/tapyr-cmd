@@ -36,3 +36,13 @@ complete -o filenames -o nospace  -F _comp_xls xls
 complete -o filenames -o nospace  -F _comp_xls xcat
 complete -o filenames -o nospace  -F _comp_xls xattr
 complete -o filenames -o nospace  -F _comp_xls xdownload
+
+complete -o filenames -o nospace  -F _comp_xls xevtx
+complete -o filenames -o nospace  -F _comp_xls xhash
+complete -o filenames -o nospace  -F _comp_xls xmerge
+complete -o filenames -o nospace  -F _comp_xls xmft
+complete -o filenames -o nospace  -F _comp_xls xntfs
+complete -o filenames -o nospace  -F _comp_xls xpartition
+complete -o filenames -o nospace  -F _comp_xls xprefetch
+complete -o filenames -o nospace  -F _comp_xls xregistry
+

@@ -26,15 +26,12 @@ def list_children(path, size):
 
 argc = len(sys.argv)
 
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-session = Tapir(*address.split(":"))
-
 if argc == 1:
+  session = Tapir()
   size = list_children("/root", 0)
   print(size)
 elif argc == 2:
+  session = Tapir()
   size = list_children(sys.argv[1], 0)
   print(size)
 else:

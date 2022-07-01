@@ -8,10 +8,6 @@ import time
 import json
 from tapyr import Tapir
 
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-session = Tapir(*address.split(":"))
 
 def usage():
   usage = "Usage: " + sys.argv[0] + " query [path]"
@@ -40,7 +36,7 @@ def usage():
 
   Examples:
   * Have an attribute named data : "attribute.name == 'data'"
-  * Name 'image1.jpg' : "name == "'image1.jpg'"
+  * Name 'image1.jpg' : "name == 'image1.jpg'"
   * Name with extension .jpg or .tiff using regexp : "name == r'([^\s]+(\.(?i)(jpg|tiff))$)'"
   * Name with extension .jpg using wildcard : "name == w'*.jpg'"
   * Name starting by image and with an underscore using wildcard : "w'image?_*.jpg':
@@ -66,10 +62,14 @@ if len(sys.argv) != 2 and len(sys.argv) != 3:
   usage()
 else:
   if len(sys.argv) == 2 :
+    session = Tapir()
     query = session.query(sys.argv[1])
   elif len(sys.argv) == 3:
+    session = Tapir()
     query = session.query(sys.argv[1], sys.argv[2])
   for chunk in chunks(query, 20000):
+    session = Tapir()
+    session = Tapir()
     nodes = session.nodes_by_id(chunk, path=True)
     for node in nodes:
       print(node.path)

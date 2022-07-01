@@ -6,19 +6,9 @@ import os
 from tapyr import Tapir
 import json
 
-def recurse(node, ids):
-  for child_info in node.children:
-    child = session.node_by_id(child_info.id)
-    recurse(child, ids) 
-    ids.push(child_info.id)
-
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-session = Tapir(*address.split(":"))
-
-
-root = session.node('/root')
-ids = []
-recurse(root, ids)
-session.schedule("hash", {"files" : [ids]})
+if len(sys.argv) != 2:
+  print(sys.argv[0] + " [FILE_PATH]")
+else:
+  session = Tapir()
+  node = session.node(sys.argv[1])
+  session.schedule("hash", {"files" : [node.id]})

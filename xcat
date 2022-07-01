@@ -4,15 +4,10 @@ sys.path.append('../tapyr')
 
 from tapyr import Tapir
 
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-
-session = Tapir(*address.split(":"))
-
 if len(sys.argv) != 2:
-  print(sys.argv[0] + " [FILE]")
+  print(sys.argv[0] + " [FILE_PATH]")
 else:
+  session = Tapir()
   node = session.node(sys.argv[1])
   size = node.data.size
   readed = 0

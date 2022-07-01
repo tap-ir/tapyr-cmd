@@ -6,10 +6,7 @@ import json
 import os
 from tapyr import Tapir
 
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-session = Tapir(*address.split(":"))
+session = Tapir()
 
 if len(sys.argv) == 1:
   counter = {}

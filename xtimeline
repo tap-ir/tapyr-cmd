@@ -7,10 +7,7 @@ import json
 from datetime import datetime, timedelta
 from tapyr import Tapir, Node
 
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-session = Tapir(*address.split(":"))
+session = Tapir()
 
 def chunks(l, n):
    for i in range(0, len(l), n): 

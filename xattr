@@ -9,23 +9,19 @@ def usage():
   print("Usage:", "show attribute:",  sys.argv[0], "[PATH]")
   print("      ", "set attribute: ", sys.argv[0], "[NAME] [VALUE] [PATH]")
 
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-
-session = Tapir(*address.split(":"))
 
 argc = len(sys.argv)
 if argc == 2:
   path = sys.argv[1]
+  session = Tapir()
   node = session.node_attributes_json(path)
   print(node)
 elif argc == 4:
   name = sys.argv[1]
   value = sys.argv[2]
   path = sys.argv[3]
+  session = Tapir()
   node = session.node(path)
-  typed_value = {"type" : "String", "value" : value}
-  session.add_attribute(node.id, name, typed_value)
+  session.add_attribute(node.id, name, value)
 else:
     usage()

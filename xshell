@@ -5,10 +5,6 @@ sys.path.append('../tapyr')
 import os
 from tapyr import Tapir
 
-address = os.getenv('ADDRESS')
-if address== None:
-  address = "127.0.0.1:3583"
-session = Tapir(*address.split(":"))
-rs = Tapir(*address.split(":"))
+session = Tapir()
 
 root = session.node("/root")
