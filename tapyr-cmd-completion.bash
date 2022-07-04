@@ -27,7 +27,7 @@ _comp_xls()
   #must use full path to complete or it will not work as it compare full path node path 
   #we eval to remove quote and escape character for directory with path as we use "filenames" 
   #option that add escape character to completed value
-  COMPLETION_LIST="$(./xls -f `eval echo $DIRNAME`)"
+  COMPLETION_LIST="$(xls -f `eval echo $DIRNAME`)"
   #compgen write possible completion to the console
   COMPREPLY=($(compgen -o filenames -W '$COMPLETION_LIST' -- $COMP_WORD))
 }

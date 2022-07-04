@@ -15,3 +15,9 @@ git clone https://github.com/tap-ir/tapyr-cmd.git
 cd tapyr-cmd
 pip install .
 ```
+
+To add bash completion support for the command : 
+
+```
+sudo cp tapyr-cmd-completion.bash /etc/bash_completion.d/ && sudo chmod 444 /etc/bash_completion.d/tapyr-cmd-completion.bash
+```
