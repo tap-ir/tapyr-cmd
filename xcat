@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 import sys, os
-sys.path.append('../tapyr')
-
 from tapyr import Tapir
 
 if len(sys.argv) != 2:

@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 import sys
-sys.path.append('../tapyr')
-
-import sys
 from tapyr import Tapir
 
 #XXX add directory extraction

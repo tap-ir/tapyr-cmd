@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-import sys
-sys.path.append('../tapyr')
-
-import time
 from tapyr import Tapir
 import sys
 import json
