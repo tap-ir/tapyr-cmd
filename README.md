@@ -15,5 +15,6 @@ pip install tapyr-cmd
 To enable bash completion for command line : 
 
 ```
-sudo cp tapyr-cmd-completion.bash /etc/bash_completion.d/ && sudo chmod 444 /etc/bash_completion.d/tapyr-cmd-completion.bash
+wget https://raw.githubusercontent.com/tap-ir/tapyr-cmd/main/tapyr-cmd-completion.bash
+sudo mv tapyr-cmd-completion.bash /etc/bash_completion.d/ && sudo chmod 444 /etc/bash_completion.d/tapyr-cmd-completion.bash
 ``` 
