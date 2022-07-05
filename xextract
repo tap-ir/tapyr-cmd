@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import sys
-from tapyr import Tapir
+from tapyr.api import Tapir
 
 #XXX add directory extraction
 #XXX add possiblity to get node id from query, time line etc

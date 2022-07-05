@@ -2,7 +2,7 @@
 import sys
 import json
 import os
-from tapyr import Tapir
+from tapyr.api import Tapir
 
 session = Tapir()
 

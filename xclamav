@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import os 
-from tapyr import Tapir
+from tapyr.api import Tapir
 import json
 
 def recurse(node):

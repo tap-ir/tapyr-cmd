@@ -6,18 +6,6 @@ The user documentation is available [here](https://tap-ir.github.io/#/?id=comman
 
 ## Installation
 
-Install [TAPyR](ttps://github.com/tap-ir/tapyr) by following the instruction [installation](https://github.com/tap-ir/tapyr#installation) instruction.
-
-Then :
-
 ```
-git clone https://github.com/tap-ir/tapyr-cmd.git
-cd tapyr-cmd
-pip install .
-```
-
-To add bash completion support for the command : 
-
-```
-sudo cp tapyr-cmd-completion.bash /etc/bash_completion.d/ && sudo chmod 444 /etc/bash_completion.d/tapyr-cmd-completion.bash
+pip install tapyr-cmd 
 ```

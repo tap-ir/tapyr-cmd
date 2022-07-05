@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='tapyr-cmd',
-    version='0.1.0',
+    version='0.2.0',
     url='https://github.com/tap-ir/tapyr-cmd',
     license='AGPLv3.0',
     author='Solal Jacob',
@@ -35,6 +35,6 @@ setup(
              'xtimeline',
              ],
     install_requires = [ 
-    "tapyr~=0.1.0"
+    "tapyr~=0.2.0"
     ]
 )

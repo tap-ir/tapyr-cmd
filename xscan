@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from tapyr import Tapir
+from tapyr.api import Tapir
 import sys
 import json
 import os

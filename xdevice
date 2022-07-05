@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import sys
 import os 
-from tapyr import Tapir
+from tapyr.api import Tapir
 
 if len(sys.argv) != 2:
   print(sys.argv[0] + " [DEVICE_PATH]")
