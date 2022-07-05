@@ -9,3 +9,11 @@ The user documentation is available [here](https://tap-ir.github.io/#/?id=comman
 ```
 pip install tapyr-cmd 
 ```
+
+## Bash completion
+
+To enable bash completion for command line : 
+
+```
+sudo cp tapyr-cmd-completion.bash /etc/bash_completion.d/ && sudo chmod 444 /etc/bash_completion.d/tapyr-cmd-completion.bash
+``` 
